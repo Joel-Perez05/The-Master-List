@@ -1,0 +1,9 @@
+Features
+
+- Using the Zelda API to bring in details of the games on the list.
+- User creates a list of their top 5 favorite Zelda Games
+- The List page will display each persons list of their top 5.
+- Delete button on List page deletes the entire list.
+- Ability to click on each individual game in the list for the details page (attained from API).
+- Uses CSS framework
+- Validations for character length and filling out the entire form.
