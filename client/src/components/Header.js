@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem} from 'reactstrap';
+import "./Header.css"
 
 const Header = (props) => {
     const [collapsed, setCollapsed] = useState(true);
@@ -20,19 +21,22 @@ const Header = (props) => {
                         <NavItem>
                             <NavLink style={{
                                 color: "black",
-                                textDecoration: "none"
+                                textDecoration: "none",
+                                fontSize: "1.4em"
                             }} to="/">Home</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink style={{
                                 color: "black",
-                                textDecoration: "none"
+                                textDecoration: "none",
+                                fontSize: "1.4em"
                             }} to="/zelda/lists">View Top 5 List</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink style={{
                                 color: "black",
-                                textDecoration: "none"
+                                textDecoration: "none",
+                                fontSize: "1.4em"
                             }} to="/zelda/list/new">Create Top 5 List</NavLink>
                         </NavItem>
                     </Nav>

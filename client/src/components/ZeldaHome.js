@@ -1,9 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import { ThemeContext } from '../ThemeContext';
 import axios from 'axios';
 import { Button, Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const ZeldaHome = (props) => {
+    const theme = useContext(ThemeContext);
+    const darkMode = theme.state.darkMode;
     const [allGames, setAllGames] = useState([]);
     const [ocarinaOfTime, setOcarinaOfTime] = useState([]);
     const [majorasMask, setMajorasMask] = useState([]);
@@ -57,8 +60,9 @@ const ZeldaHome = (props) => {
         <div className='mx-auto'>
             <div className='d-flex flex-wrap mt-5'>
                 <div className='mx-auto'>
-                    <Card style={{
-                        width: '25rem'
+                    <Card className='border-dark' style={{
+                        width: '25rem',
+                        boxShadow: "7px 7px 7px gray"
                         }}>
                         <img
                             alt="Sample"
@@ -77,8 +81,9 @@ const ZeldaHome = (props) => {
                     </Card>
                 </div>
                 <div className='mx-auto'>
-                    <Card style={{
-                        width: '25rem'
+                    <Card className='border-dark' style={{
+                        width: '25rem',
+                        boxShadow: "7px 7px 7px gray"
                         }}>
                         <img
                             alt="Sample"
@@ -97,8 +102,9 @@ const ZeldaHome = (props) => {
                     </Card>
                 </div>
                 <div className='mx-auto'>
-                    <Card style={{
-                        width: '25rem'
+                    <Card className='border-dark' style={{
+                        width: '25rem',
+                        boxShadow: "7px 7px 7px gray"
                         }}>
                         <img
                             alt="Sample"
@@ -125,9 +131,8 @@ const ZeldaHome = (props) => {
                                 width: "15rem"
                                 }} key={game.id}>
                                 <p className='mx-auto'>
-                                    <Link style={{
-                                        textDecoration: "none",
-                                        color: "black"
+                                    <Link className={`text ${darkMode ? "text-light" : "text-dark"}`} style={{
+                                        textDecoration: "none"
                                         }} to={"/game/details/" + game.id}>{game.name}</Link>
                                 </p>
                             </div>
