@@ -14,7 +14,6 @@ const ZeldaHome = (props) => {
                 console.log(err)
             })
     }, []);
-    
 
     return (
         <div>
