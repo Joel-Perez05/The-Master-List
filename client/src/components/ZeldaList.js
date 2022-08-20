@@ -35,7 +35,7 @@ const ZeldaList = (props) => {
             {
                 userLists.map((list) => {
                     return (
-                        <div key={list._id}>
+                        <div style={{border: "3px solid black"}} key={list._id}>
                             <p>{list.username}</p>
                             <p>{list.firstGame}</p>
                             <p>{list.secondGame}</p>

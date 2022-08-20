@@ -21,6 +21,18 @@ const Header = (props) => {
                             <NavLink style={{
                                 color: "black",
                                 textDecoration: "none"
+                            }} to="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink style={{
+                                color: "black",
+                                textDecoration: "none"
+                            }} to="/zelda/lists">View Top 5 List</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink style={{
+                                color: "black",
+                                textDecoration: "none"
                             }} to="/zelda/list/new">Create Top 5 List</NavLink>
                         </NavItem>
                     </Nav>
