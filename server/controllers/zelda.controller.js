@@ -1,46 +1,69 @@
-const Person = require('../models/zelda.model');   
-module.exports.index = (request, response) => {
-    response.json({
-        message: "Hello World"
-    });
-}
+const List = require('../models/zelda.model');
 
-module.exports.createPerson = (request, response) => {
-    Person.create(request.body) 
-        .then(person => response.json(person))
-        .catch(err => response.json(err));
-}
+const getOneList = (req, res) => {
+    List.findOne({_id: req.params.id})
+        .then((singleList) => res.json(singleList))
+        .catch((err) => {
+            console.log("Error in get one list", err);
+            res.status(400).json({
+                message: "something went wrong in get one list",
+                error: err
+            });
+        });
+};
 
-module.exports.getAllPeople = (request, response) => {
-    Person.find({})
-        .then(persons => {
-            console.log(persons); 
-            response.json(persons);
-        })
-        .catch(err => {
-            console.log(err)
-            response.json(err)
-        })
-}
+const getAllLists = (req, res) => {
+    List.find({})
+        .then((allLists) => res.json(allLists))
+        .catch((err) => {
+            console.log("Error in get all lists", err);
+            res.status(400).json({
+                message: "something went wrong in get all lists",
+                error: err
+            });
+        });
+};
 
-module.exports.getPerson = (request, response) => {
-    Person.findOne({_id:request.params.id})
-        .then(person => response.json(person))
-        .catch(err => response.json(err))
-}
+const createList = (req, res) => {
+    List.create(req.body)
+        .then((newList) => res.status(201).json(newList))
+        .catch((err) => {
+            console.log("Error in create new list", err);
+            res.status(400).json({
+                message: "something went wrong in create new list",
+                error: err
+            });
+        });
+};
 
-module.exports.updatePerson = (request, response) => {
-    Person.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
-        .then(updatedPerson => response.json(updatedPerson))
-        .catch(err => response.json(err))
-}
+const updateList = (req, res) => {
+    List.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true})
+        .then((updatedList) => res.json(updatedList))
+        .catch((err) => {
+            console.log("Error in update list", err);
+            res.status(400).json({
+                message: "something went wrong in update list",
+                error: err
+            });
+        });
+};
 
-module.exports.deletePerson = (request, response) => {
-    Person.deleteOne({ _id: request.params.id }) 
-        .then(deleteConfirmation => response.json(deleteConfirmation))
-        .catch(err => response.json(err))
-}
+const deleteList = (req, res) => {
+    List.findOneAndDelete({_id: req.params.id})
+        .then((deletedList) => res.json(deletedList))
+        .catch((err) => {
+            console.log("Error in delete list", err);
+            res.status(400).json({
+                message: "something went wrong in delete list",
+                error: err
+            });
+        });
+};
 
-
-
-
+module.exports = {
+    getOneList,
+    getAllLists,
+    createList,
+    updateList,
+    deleteList
+};
