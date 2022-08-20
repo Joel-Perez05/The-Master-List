@@ -11,14 +11,29 @@ const Header = (props) => {
         <div>
             <Navbar className='p-5' color="success" light>
                 <NavbarBrand className="me-auto fs-1">
-                <img style={{height: "80px"}} src="/TPHD_Master_Sword_Artwork.webp" alt="master sword picture"/>
+                <img style={{height: "80px"}} src="/TPHD_Master_Sword_Artwork.webp" alt='master sword'/>
                 he Master List
                 </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="me-2" />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink style={{
+                                color: "black",
+                                textDecoration: "none"
+                            }} to="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink style={{
+                                color: "black",
+                                textDecoration: "none"
+                            }} to="/zelda/lists">View Top 5 List</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink style={{
+                                color: "black",
+                                textDecoration: "none"
+                            }} to="/zelda/list/new">Create Top 5 List</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
