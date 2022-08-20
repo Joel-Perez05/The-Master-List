@@ -20,7 +20,8 @@ const Detail = (props) => {
         <div className='d-flex flex-wrap mt-5'>
             <div className='mx-auto'>
                 <Card style={{
-                    width: '30rem'
+                    width: '30rem',
+                    boxShadow: "7px 7px 7px gray"
                     }}>
                     <CardHeader tag="h2">Game Details</CardHeader>
                     <CardBody>

@@ -19,7 +19,7 @@ export default function SwitchButton() {
             marginTop: "30px",
             marginLeft: "10px"
             }} 
-            className={`btn ${darkMode? "btn-dark": "btn-light"}`} onClick={onClick}>
+            className={`btn ${darkMode? "btn-light": "btn-dark"}`} onClick={onClick}>
             {darkMode? "Light": "Dark"}
         </button>
     )
