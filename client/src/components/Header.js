@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem} from 'reactstrap';
 
-{/* <img src="/TPHD_Master_Sword_Artwork.webp" alt="master sword picture"/> */}
-
 const Header = (props) => {
     const [collapsed, setCollapsed] = useState(true);
 
