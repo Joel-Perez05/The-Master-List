@@ -43,6 +43,9 @@ const ZeldaList = (props) => {
                             <p>{list.fourthGame}</p>
                             <p>{list.fifthGame}</p>
                             <button onClick={(e) => {deleteList(list._id)}}>delete</button>
+                            <button>
+                                <Link to={`/zelda/list/edit/${list._id}`}>Edit</Link>
+                            </button>
                         </div>
                     )
                 })

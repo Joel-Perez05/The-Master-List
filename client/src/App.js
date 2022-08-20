@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import ZeldaForm from "./components/ZeldaForm";
 import ZeldaHome from "./components/ZeldaHome";
 import ZeldaList from "./components/ZeldaList";
+import Update from "./components/Update";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route element={<ZeldaHome />} path="/" />
         <Route element={<ZeldaForm />} path="/zelda/list/new" />
         <Route element={<ZeldaList />} path="/zelda/lists" />
+        <Route element={<Update />} path="zelda/list/edit/:id" />
       </Routes>
     </div>
     </BrowserRouter>
