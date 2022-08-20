@@ -11,7 +11,7 @@ const Header = (props) => {
         <div>
             <Navbar className='p-5' color="success" light>
                 <NavbarBrand className="me-auto fs-1">
-                <img style={{height: "80px"}} src="/TPHD_Master_Sword_Artwork.webp" alt="master sword picture"/>
+                <img style={{height: "80px"}} src="/TPHD_Master_Sword_Artwork.webp" alt='master sword'/>
                 he Master List
                 </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="me-2" />
