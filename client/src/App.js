@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header";
@@ -7,12 +7,18 @@ import ZeldaHome from "./components/ZeldaHome";
 import ZeldaList from "./components/ZeldaList";
 import Update from "./components/Update";
 import Detail from "./components/Detail";
+import { ThemeContext } from "./ThemeContext";
+import ThemeButton from "./components/ThemeButton";
 
 function App() {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
+
   return (
     <BrowserRouter>
-    <div className="App">
+    <div className={`bg ${darkMode ? "bg-dark" : "bg-light"}`}>
       <Header />
+      <ThemeButton />
       <Routes>
         <Route element={<ZeldaHome />} path="/" />
         <Route element={<ZeldaForm />} path="/zelda/list/new" />
