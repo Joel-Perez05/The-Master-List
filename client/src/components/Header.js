@@ -18,7 +18,10 @@ const Header = (props) => {
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink style={{
+                                color: "black",
+                                textDecoration: "none"
+                            }} to="/zelda/list/new">Create Top 5 List</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

@@ -26,7 +26,7 @@ const ZeldaForm = (props) => {
             .then(res=>{
                 console.log(res.data); 
                 // setPeople([...people, res.data]); 
-                navigate("/");
+                navigate("/zelda/lists");
             })
             .catch((err) => {
                 console.log(err.response.data.error.errors);
