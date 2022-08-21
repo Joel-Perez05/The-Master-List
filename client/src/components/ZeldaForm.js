@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const ZeldaForm = (props) => {
-    const {people, setPeople} = props;
     const [username, setUsername] = useState(""); 
     const [firstGame, setFirstGame] = useState("");
     const [secondGame, setSecondGame] = useState("");
@@ -25,7 +24,6 @@ const ZeldaForm = (props) => {
         })
             .then(res=>{
                 console.log(res.data); 
-                // setPeople([...people, res.data]); 
                 navigate("/zelda/lists");
             })
             .catch((err) => {
