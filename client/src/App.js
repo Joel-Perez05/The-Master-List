@@ -16,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div style={{height: "1500px"}} className={`bg ${darkMode ? "bg-dark" : "bg-light"}`}>
+    <div style={{height: "1560px"}} className={`bg ${darkMode ? "bg-dark" : "bg-light"}`}>
       <Header />
       <ThemeButton />
       <Routes>
