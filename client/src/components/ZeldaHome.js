@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { ThemeContext } from '../ThemeContext';
 import axios from 'axios';
-import { Button, Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, CardText, FormGroup, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const ZeldaHome = (props) => {
@@ -11,6 +11,7 @@ const ZeldaHome = (props) => {
     const [ocarinaOfTime, setOcarinaOfTime] = useState([]);
     const [majorasMask, setMajorasMask] = useState([]);
     const [breathOfTheWild, setBreathOfTheWild] = useState([]);
+    const [inputText, setInputText] = useState("");
 
     useEffect(() => {
         axios.get("https://zelda.fanapis.com/api/games?limit=100")
@@ -55,6 +56,20 @@ const ZeldaHome = (props) => {
                 console.log(err)
             })
     }, []);
+
+    const inputHandler = (e) => {
+        let lowerCase = e.target.value;
+        setInputText(lowerCase);
+    };
+
+    const filteredData = allGames.filter((game) => {
+        console.log(game.name)
+        if (inputText === "") {
+            return game.name;
+        } else {
+            return game.name.toLowerCase().includes(inputText);
+        }
+    })
 
     return (
         <div className='mx-auto'>
@@ -123,9 +138,21 @@ const ZeldaHome = (props) => {
                     </Card>
                 </div>
             </div>
+            <div>
+                <h2 style={{
+                    width: "300px",
+                    margin: "auto",
+                    marginTop: "50px"
+                }} className={`text ${darkMode ? "text-light" : "text-dark"}`}>Find a Zelda Game!</h2>
+                <FormGroup className='col-4 mx-auto mt-4' floating>
+                    <Input id="search" name='search' placeholder='Search Games...' type="text" onChange={inputHandler}/>
+                    <Label for="search">Search Games...</Label>
+                </FormGroup>
+                {' '}
+            </div>
             <div className='d-flex flex-wrap p-2 mt-5'>
                 {
-                    allGames.map((game) => {
+                    filteredData.map((game) => {
                         return (
                             <div className='mx-auto' style={{
                                 width: "15rem"
