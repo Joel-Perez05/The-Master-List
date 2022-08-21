@@ -1,12 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import io from "socket.io-client";
 
 const ZeldaList = (props) => {
     const [userLists, setUserLists] = useState([]);
-
+    const [socket] = useState(() => io(":8000"));
 
     useEffect(()=>{
+        socket.on("connection", () => {
+            console.log("connected");
+        })
         axios.get("http://localhost:8000/api/lists")
         .then((res)=>{
             console.log(res.data);
@@ -15,20 +19,25 @@ const ZeldaList = (props) => {
         .catch((err)=>{
             console.log(err);
         })
-    }, []);
+        return () => socket.disconnect(true);
+    }, [socket]);
 
     const deleteList = (listId) => {
-        axios.delete('http://localhost:8000/api/lists/' + listId)
-            .then((res) => {
-                console.log(res.data);
-                const remainingLists = userLists.filter((list) => {
-                    return list._id !== listId
-                });
-                setUserLists(remainingLists);
-            })
-            .catch(err => console.log(err))
-    }
+        // axios.delete('http://localhost:8000/api/lists/' + listId)
+        //     .then((res) => {
+        //         console.log(res.data);
+        //         const remainingLists = userLists.filter((list) => {
+        //             return list._id !== listId
+        //         });
+        //         setUserLists(remainingLists);
+        //     })
+        //     .catch(err => console.log(err))
+        socket.emit("deleteList", listId);
+    };
 
+    socket.on("listDeleted", (deletedId) => {
+        setUserLists(userLists.filter((list) => list._id !== deletedId));
+    })
 
     return (
         <div>
