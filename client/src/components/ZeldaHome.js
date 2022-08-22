@@ -63,7 +63,7 @@ const ZeldaHome = (props) => {
     };
 
     const filteredData = allGames.filter((game) => {
-        console.log(game.name)
+        // console.log(game.name)
         if (inputText === "") {
             return game.name;
         } else {
