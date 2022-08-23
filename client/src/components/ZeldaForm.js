@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Input, Label, Button } from 'reactstrap';
+import "./ZeldaForm.css"
 
 const ZeldaForm = (props) => {
     const [username, setUsername] = useState(""); 
@@ -35,39 +37,39 @@ const ZeldaForm = (props) => {
 
     
     return (
-        <div>
+        <div className='FormGroup'>
         <form onSubmit={onSubmitHandler}>
             <p>
-                <label>User Name</label><br/>
-                <input type="text" onChange = {(e)=>setUsername(e.target.value)}/>
+                <Label for="username">User Name</Label><br/>
+                <Input type="text" onChange = {(e)=>setUsername(e.target.value)}/>
                 {errors.username && <p>{errors.username.message}</p> }
             </p>
             <p>
-                <label>First Game</label><br/>
-                <input type="text" onChange = {(e)=>setFirstGame(e.target.value)}/>
+            <Label for="first_game">First Game</Label><br/>
+                <Input type="text" onChange = {(e)=>setFirstGame(e.target.value)}/>
                 {errors.firstGame && <p>{errors.firstGame.message}</p> }
             </p>
             <p>
-                <label>Second Game</label><br/>
-                <input type="text" onChange = {(e)=>setSecondGame(e.target.value)}/>
+                <Label for="second_game">Second Game</Label><br/>
+                <Input type="text" onChange = {(e)=>setSecondGame(e.target.value)}/>
                 {errors.secondGame && <p>{errors.secondGame.message}</p> }
             </p>
             <p>
-                <label>Third Game</label><br/>
-                <input type="text" onChange = {(e)=>setThirdGame(e.target.value)}/>
+                <Label for="third_game">Third Game</Label><br/>
+                <Input type="text" onChange = {(e)=>setThirdGame(e.target.value)}/>
                 {errors.thirdGame && <p>{errors.thirdGame.message}</p> }
             </p>
             <p>
-                <label>Fourth Game</label><br/>
-                <input type="text" onChange = {(e)=>setFourthGame(e.target.value)}/>
+                <Label for="fourth_game">Fourth Game</Label><br/>
+                <Input type="text" onChange = {(e)=>setFourthGame(e.target.value)}/>
                 {errors.fourthGame && <p>{errors.fourthGame.message}</p> }
             </p>
             <p>
-                <label>Fifth Game</label><br/>
-                <input type="text" onChange = {(e)=>setFifthGame(e.target.value)}/>
+                <Label for="fifth_game">Fifth Game</Label><br/>
+                <Input type="text" onChange = {(e)=>setFifthGame(e.target.value)}/>
                 {errors.fifthGame && <p>{errors.fifthGame.message}</p> }
             </p>
-            <button>Submit</button>
+            <Button color='success'>Submit</Button>
         </form>
         </div>
     )

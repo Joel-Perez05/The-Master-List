@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import io from "socket.io-client";
+import { Button } from 'reactstrap';
+import "./ZeldaList.css"
+
 
 const ZeldaList = (props) => {
     const [userLists, setUserLists] = useState([]);
@@ -40,7 +43,8 @@ const ZeldaList = (props) => {
     })
 
     return (
-        <div>
+        <div className='FormGroup'>
+
             {
                 userLists.map((list) => {
                     return (
@@ -51,14 +55,15 @@ const ZeldaList = (props) => {
                             <p>{list.thirdGame}</p>
                             <p>{list.fourthGame}</p>
                             <p>{list.fifthGame}</p>
-                            <button onClick={(e) => {deleteList(list._id)}}>delete</button>
-                            <button>
+                            <Button color='danger' onClick={(e) => {deleteList(list._id)}}>Delete</Button>
+                            <Button color='success'>
                                 <Link to={`/zelda/list/edit/${list._id}`}>Edit</Link>
-                            </button>
+                            </Button>
                         </div>
                     )
                 })
             }
+
         </div>
     );
 };
