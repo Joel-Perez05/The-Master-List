@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams} from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import { Card, CardBody, CardTitle, CardText, CardHeader } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 const Detail = (props) => {
     const [game, setGame] = useState([]);
@@ -32,6 +33,9 @@ const Detail = (props) => {
                         <CardText>Release Date: {game.released_date}</CardText>
                     </CardBody>
                 </Card>
+                <Button color='success'>
+                                <Link style={{color:"white"}} to={"/"}>Home</Link>
+                            </Button>
             </div>
         </div>
     )

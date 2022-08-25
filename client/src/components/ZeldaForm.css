@@ -1,4 +1,26 @@
 .FormGroup {
     margin-left: 20px;
     width: 500px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    color: white;
+}
+.formBackground {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    
+}
+.formText {
+    color: white;
+}
+.listContent {
+    border: 2px solid black;
+    width: 800px;
+    height: 500px;
 }

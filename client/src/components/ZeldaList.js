@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import io from "socket.io-client";
 import { Button } from 'reactstrap';
-import "./ZeldaList.css"
+import "./ZeldaForm.css"
+import background from "../images/triforce.jpg";
 
 
 const ZeldaList = (props) => {
@@ -48,17 +49,19 @@ const ZeldaList = (props) => {
             {
                 userLists.map((list) => {
                     return (
-                        <div style={{border: "3px solid black"}} key={list._id}>
-                            <p>{list.username}</p>
-                            <p>{list.firstGame}</p>
-                            <p>{list.secondGame}</p>
-                            <p>{list.thirdGame}</p>
-                            <p>{list.fourthGame}</p>
-                            <p>{list.fifthGame}</p>
+                        <div className='listContent'>
+                        <div style={{border: "3px solid black", backgroundImage: `url(${background})`}} key={list._id}>
+                            <p>Username: {list.username}</p>
+                            <p>First Game: {list.firstGame}</p>
+                            <p>Second Game: {list.secondGame}</p>
+                            <p>Third Game: {list.thirdGame}</p>
+                            <p>Fourth Game: {list.fourthGame}</p>
+                            <p>Fifth Game: {list.fifthGame}</p>
                             <Button color='danger' onClick={(e) => {deleteList(list._id)}}>Delete</Button>
                             <Button color='success'>
                                 <Link to={`/zelda/list/edit/${list._id}`}>Edit</Link>
                             </Button>
+                        </div>
                         </div>
                     )
                 })
