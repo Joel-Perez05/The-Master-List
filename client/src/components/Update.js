@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { ThemeContext } from '../ThemeContext';
 import axios from 'axios';
 import {useNavigate, useParams} from "react-router-dom";
 import { Input, Label, Button } from 'reactstrap';
-import "./Update.css"
 
 const Update = (props) => {
+    const theme = useContext(ThemeContext);
+    const darkMode = theme.state.darkMode;
     const { id } = useParams(); 
     const [username, setUsername] = useState("");
     const [firstGame, setFirstGame] = useState("");
@@ -50,36 +52,36 @@ const Update = (props) => {
     }
     return (
         <div className='FormGroup'>
-            <form onSubmit={onSubmitHandler}>
+            <form className='mx-auto col-5 mt-5' onSubmit={onSubmitHandler}>
                 <p>
-                    <Label for="username">User Name</Label><br/>
+                    <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="username">User Name</Label><br/>
                     <Input value={username} type="text" onChange = {(e)=>setUsername(e.target.value)}/>
-                    {errors.username && <p>{errors.username.message}</p> }
+                    {errors.username && <p className='text-danger mt-3'>{errors.username.message}</p> }
                 </p>
                 <p>
-                    <Label for="first_game">First Game</Label><br/>
+                    <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="first_game">First Game</Label><br/>
                     <Input value={firstGame} type="text" onChange = {(e)=>setFirstGame(e.target.value)}/>
-                    {errors.firstGame && <p>{errors.firstGame.message}</p> }
+                    {errors.firstGame && <p className='text-danger mt-3'>{errors.firstGame.message}</p> }
                 </p>
                 <p>
-                    <Label for="second_game">Second Game</Label><br/>
+                    <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="second_game">Second Game</Label><br/>
                     <Input value={secondGame} type="text" onChange = {(e)=>setSecondGame(e.target.value)}/>
-                    {errors.secondGame && <p>{errors.secondGame.message}</p> }
+                    {errors.secondGame && <p className='text-danger mt-3'>{errors.secondGame.message}</p> }
                 </p>
                 <p>
-                    <Label for="third_game">Third Game</Label><br/>
+                    <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="third_game">Third Game</Label><br/>
                     <Input value={thirdGame} type="text" onChange = {(e)=>setThirdGame(e.target.value)}/>
-                    {errors.thirdGame && <p>{errors.thirdGame.message}</p> }
+                    {errors.thirdGame && <p className='text-danger mt-3'>{errors.thirdGame.message}</p> }
                 </p>
                 <p>
-                    <Label for="fourth_game">Fourth Game</Label><br/>
+                    <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="fourth_game">Fourth Game</Label><br/>
                     <Input value={fourthGame} type="text" onChange = {(e)=>setFourthGame(e.target.value)}/>
-                    {errors.fourthGame && <p>{errors.fourthGame.message}</p> }
+                    {errors.fourthGame && <p className='text-danger mt-3'>{errors.fourthGame.message}</p> }
                 </p>
                 <p>
-                    <Label for="fifth_game">Fifth Game</Label><br/>
+                    <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="fifth_game">Fifth Game</Label><br/>
                     <Input value={fifthGame} type="text" onChange = {(e)=>setFifthGame(e.target.value)}/>
-                    {errors.fifthGame && <p>{errors.fifthGame.message}</p> }
+                    {errors.fifthGame && <p className='text-danger mt-3'>{errors.fifthGame.message}</p> }
                 </p>
                 <Button color='success'>Update</Button>
             </form>
