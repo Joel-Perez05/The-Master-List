@@ -53,6 +53,7 @@ const Update = (props) => {
     return (
         <div className='FormGroup'>
             <form className='mx-auto col-5 mt-5' onSubmit={onSubmitHandler}>
+                <h2 className={`text ${darkMode ? "text-light" : "text-dark"}`}>Edit Top 5 List!!!</h2>
                 <p>
                     <Label className={`text ${darkMode ? "text-light" : "text-dark"}`} for="username">User Name</Label><br/>
                     <Input value={username} type="text" onChange = {(e)=>setUsername(e.target.value)}/>

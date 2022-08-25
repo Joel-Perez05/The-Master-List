@@ -48,6 +48,7 @@ const ZeldaForm = (props) => {
             }}>
         <div className='col-5 mx-auto p-5 text-light'>
         <form onSubmit={onSubmitHandler}>
+            <h2>Create Top 5 Zelda Games List!!!</h2>
             <p>
                 <Label for="username">User Name</Label><br/>
                 <Input type="text" onChange = {(e)=>setUsername(e.target.value)}/>
