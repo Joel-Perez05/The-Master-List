@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import io from "socket.io-client";
-import { Button } from 'reactstrap';
-import "./ZeldaForm.css"
+import { Button, Card, CardBody, ListGroup, ListGroupItem } from 'reactstrap';
+// import "./ZeldaForm.css"
 import background from "../images/triforce.jpg";
 
 
@@ -44,31 +44,39 @@ const ZeldaList = (props) => {
     })
 
     return (
-        <div className='FormGroup'>
-
+        <div className='d-flex flex-wrap mt-5'>
             {
                 userLists.map((list) => {
                     return (
-                        <div className='listContent'>
-                        <div style={{border: "3px solid black", backgroundImage: `url(${background})`}} key={list._id}>
-                            <p>Username: {list.username}</p>
-                            <p>First Game: {list.firstGame}</p>
-                            <p>Second Game: {list.secondGame}</p>
-                            <p>Third Game: {list.thirdGame}</p>
-                            <p>Fourth Game: {list.fourthGame}</p>
-                            <p>Fifth Game: {list.fifthGame}</p>
-                            <Button color='danger' onClick={(e) => {deleteList(list._id)}}>Delete</Button>
-                            <Button color='success'>
-                                <Link to={`/zelda/list/edit/${list._id}`}>Edit</Link>
-                            </Button>
-                        </div>
-                        </div>
+                            <Card className='mx-auto mt-4 border-dark' style={{
+                                width: '24rem',
+                                boxShadow: "7px 7px 7px gray"
+                                }}>
+                                <img style={{
+                                    height: "250px"
+                                }} alt="triforce" src={background}/>
+                                <CardBody>
+                                    <ListGroup flush>
+                                        <ListGroupItem>Username: {list.username}</ListGroupItem>
+                                        <ListGroupItem>First Game: {list.firstGame}</ListGroupItem>
+                                        <ListGroupItem>Second Game: {list.secondGame}</ListGroupItem>
+                                        <ListGroupItem>Third Game: {list.thirdGame}</ListGroupItem>
+                                        <ListGroupItem>Fourth Game: {list.fourthGame}</ListGroupItem>
+                                        <ListGroupItem>Fifth Game: {list.fifthGame}</ListGroupItem>
+                                    </ListGroup>
+                                    <Button color='danger' onClick={(e) => {deleteList(list._id)}}>Delete</Button>
+                                    <Button className='ms-4' color='success'>
+                                        <Link style={{
+                                            textDecoration: "none",
+                                            color: "white"
+                                        }} to={`/zelda/list/edit/${list._id}`}>Edit</Link>
+                                    </Button>
+                                </CardBody>
+                            </Card>
                     )
                 })
             }
-
         </div>
     );
 };
 export default ZeldaList;
-

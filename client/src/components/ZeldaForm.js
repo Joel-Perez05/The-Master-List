@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Input, Label, Button } from 'reactstrap';
-import "./ZeldaForm.css"
 import background from "../images/crest.jpg";
 
 const ZeldaForm = (props) => {
@@ -38,38 +37,46 @@ const ZeldaForm = (props) => {
 
     
     return (
-        <div className='formBackground' style={{backgroundImage: `url(${background})`}}>
-        <div className='FormGroup'>
+        <div style={{
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            backgroundSize: "cover",
+            width: "100vw",
+            height: "100vh"
+            }}>
+        <div className='col-5 mx-auto p-5 text-light'>
         <form onSubmit={onSubmitHandler}>
             <p>
-                <Label className='formText' for="username">User Name</Label><br/>
+                <Label for="username">User Name</Label><br/>
                 <Input type="text" onChange = {(e)=>setUsername(e.target.value)}/>
-                {errors.username && <p>{errors.username.message}</p> }
+                {errors.username && <p className='text-danger mt-3'>{errors.username.message}</p> }
             </p>
             <p>
-            <Label className='formText' for="first_game">First Game</Label><br/>
+            <Label for="first_game">First Game</Label><br/>
                 <Input type="text" onChange = {(e)=>setFirstGame(e.target.value)}/>
-                {errors.firstGame && <p>{errors.firstGame.message}</p> }
+                {errors.firstGame && <p className='text-danger mt-3'>{errors.firstGame.message}</p> }
             </p>
             <p>
-                <Label className='formText' for="second_game">Second Game</Label><br/>
+                <Label for="second_game">Second Game</Label><br/>
                 <Input type="text" onChange = {(e)=>setSecondGame(e.target.value)}/>
-                {errors.secondGame && <p>{errors.secondGame.message}</p> }
+                {errors.secondGame && <p className='text-danger mt-3'>{errors.secondGame.message}</p> }
             </p>
             <p>
-                <Label className='formText' for="third_game">Third Game</Label><br/>
+                <Label for="third_game">Third Game</Label><br/>
                 <Input type="text" onChange = {(e)=>setThirdGame(e.target.value)}/>
-                {errors.thirdGame && <p>{errors.thirdGame.message}</p> }
+                {errors.thirdGame && <p className='text-danger mt-3'>{errors.thirdGame.message}</p> }
             </p>
             <p>
-                <Label className='formText' for="fourth_game">Fourth Game</Label><br/>
+                <Label for="fourth_game">Fourth Game</Label><br/>
                 <Input type="text" onChange = {(e)=>setFourthGame(e.target.value)}/>
-                {errors.fourthGame && <p>{errors.fourthGame.message}</p> }
+                {errors.fourthGame && <p className='text-danger mt-3'>{errors.fourthGame.message}</p> }
             </p>
             <p>
-                <Label className='formText' for="fifth_game">Fifth Game</Label><br/>
+                <Label for="fifth_game">Fifth Game</Label><br/>
                 <Input type="text" onChange = {(e)=>setFifthGame(e.target.value)}/>
-                {errors.fifthGame && <p>{errors.fifthGame.message}</p> }
+                {errors.fifthGame && <p className='text-danger mt-3'>{errors.fifthGame.message}</p> }
             </p>
             <Button color='success'>Submit</Button>
         </form>
