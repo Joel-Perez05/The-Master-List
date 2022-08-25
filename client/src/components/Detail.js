@@ -31,11 +31,14 @@ const Detail = (props) => {
                         <CardText>Developer: {game.developer}</CardText>
                         <CardText>Publisher: {game.publisher}</CardText>
                         <CardText>Release Date: {game.released_date}</CardText>
+                        <Button color='success'>
+                            <Link style={{
+                                color:"white",
+                                textDecoration: "none"
+                                }} to={"/"}>Home</Link>
+                        </Button>
                     </CardBody>
                 </Card>
-                <Button color='success'>
-                                <Link style={{color:"white"}} to={"/"}>Home</Link>
-                            </Button>
             </div>
         </div>
     )

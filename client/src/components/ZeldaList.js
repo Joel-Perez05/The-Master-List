@@ -48,7 +48,10 @@ const ZeldaList = (props) => {
             {
                 userLists.map((list) => {
                     return (
-                            <Card className='mx-auto mt-4' style={{width: '24rem'}}>
+                            <Card className='mx-auto mt-4 border-dark' style={{
+                                width: '24rem',
+                                boxShadow: "7px 7px 7px gray"
+                                }}>
                                 <img style={{
                                     height: "250px"
                                 }} alt="triforce" src={background}/>
