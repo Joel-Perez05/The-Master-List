@@ -1,7 +1,8 @@
-require('./config/mongoose.config');   
+require('./config/mongoose.config');
+require("dotenv") 
 const express = require('express');
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 4000;
 const cors = require('cors');
 const socket = require("socket.io");
 const List = require("./models/zelda.model");
