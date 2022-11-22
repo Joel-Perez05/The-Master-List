@@ -11,10 +11,10 @@ const path = require("path");
 app.use(express.json());
 app.use(cors({origin: "http://localhost:3000"}));
 // app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve("The-Master-List", "client", "build")));
 
 require('./routes/zelda.routes')(app);
 
+app.use(express.static(path.resolve("The-Master-List", "client", "build")));
 app.get('/*', function (req, res) {
     res.sendFile(path.join("The-Master-List", 'client', 'build', 'index.html'));
 });
